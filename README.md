@@ -15,6 +15,8 @@ Employees: Can add farmers, view and filter products, and manage roles.
 Farmers: Can add, view, update, and delete their own products.
 Unauthorized access attempts result in an "access denied" message. This app is designed to be easy to use and effective for stock management. Employees have broad access, while farmers have access tailored to their needs. Developing this app was enjoyable, and I hope it benefits and educates others as well.
 
+https://youtu.be/tbAQVVmL9gg
+
 Prerequisites
 Before you proceed, make sure you have the following tools and dependencies installed:
 
