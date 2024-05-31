@@ -1,0 +1,80 @@
+﻿@model IEnumerable<PROG7311POE.Models.Product>
+
+<h1>Index</h1>
+
+@using (Html.BeginForm("Index", "Products", FormMethod.Get))
+{
+    <div class="form-group">
+        <label for="searchQuery">Search by Farmer Name:</label>
+        <input type="text" id="searchQuery" name="searchQuery" class="form-control" placeholder="Enter farmer name">
+    </div>
+
+    <div class="form-group">
+        <label for="farmerName">Filter by Farmer Name:</label>
+        <input type="text" id="farmerName" name="farmerName" class="form-control" placeholder="Enter farmer name">
+    </div>
+
+    <div class="form-group">
+        <label for="startDate">Filter by Start Date:</label>
+        <input type="date" id="startDate" name="startDate" class="form-control">
+    </div>
+
+    <div class="form-group">
+        <label for="endDate">Filter by End Date:</label>
+        <input type="date" id="endDate" name="endDate" class="form-control">
+    </div>
+
+    <div class="form-group">
+        <label for="productType">Filter by Product Type:</label>
+        <input type="text" id="productType" name="productType" class="form-control" placeholder="Enter product type">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Search and Filter</button>
+}
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Quantity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateSupplied)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FarmerName)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Quantity)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateSupplied)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FarmerName)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.ProductID">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.ProductID">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.ProductID">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
